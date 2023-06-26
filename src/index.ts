@@ -2,6 +2,7 @@ import { Plugin, ResolvedConfig } from "vite";
 import * as http from "http";
 import jsonServer, { MiddlewaresOptions } from "json-server";
 import { join } from "path";
+import fs from "fs";
 import { NextFunction, IncomingMessage } from "connect";
 //@ts-ignore
 import is from "json-server/lib/cli/utils/is";
@@ -138,6 +139,10 @@ export const pluginJsonServer = (
     name: "vite-plugin-json-server",
     configureServer: async (devServer) => {
       const { config, watcher } = devServer;
+      const dir = join(config.root, opts.profile);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
       let app = await createServer(config);
       if (!opts.unwatch) {
         const files = [opts.source];
