@@ -1,13 +1,13 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import { pluginJsonServer } from "../src/index";
-// https://vitejs.dev/config/
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import jsonServer from "vite-plugin-json-server";
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    pluginJsonServer({
+    jsonServer({
       profile: "./db1",
     }),
   ],
-});
+})

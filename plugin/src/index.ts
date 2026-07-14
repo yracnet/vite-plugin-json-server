@@ -5,9 +5,9 @@ import { join } from "path";
 import fs from "fs";
 import { NextFunction, IncomingMessage } from "connect";
 //@ts-ignore
-import is from "json-server/lib/cli/utils/is";
+import is from "json-server/lib/cli/utils/is.js";
 //@ts-ignore
-import load from "json-server/lib/cli/utils/load";
+import load from "json-server/lib/cli/utils/load.js";
 //@ts-ignore
 import pause from "connect-pause";
 

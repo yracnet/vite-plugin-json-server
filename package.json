@@ -1,53 +1,13 @@
 {
-  "name": "vite-plugin-json-server",
-  "version": "0.1.1",
-  "type": "module",
-  "description": "A plugin that integrates json-server with Vite.js, providing a simple way to mock REST APIs during development.",
-  "keywords": [
-    "vite",
-    "json",
-    "json-server",
-    "server",
-    "mock",
-    "mockAPI"
-  ],
-  "files": [
-    "dist",
-    "LICENSE"
-  ],
-  "license": "MIT",
   "author": "Willyams Yujra <yracnet@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yracnet/vite-plugin-json-server"
-  },
-  "main": "dist/index.js",
-  "module": "dist/index.cjs",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "homepage": "https://github.com/yracnet/vite-plugin-json-server",
-  "bugs": "https://github.com/yracnet/vite-plugin-json-server/issues",
-  "scripts": {
-    "build": "tsup"
-  },
-  "dependencies": {
-    "json-server": "^0.17.3"
-  },
-  "peerDependencies": {
-    "vite": "^4.0.0"
-  },
-  "devDependencies": {
-    "@types/connect": "^3.4.35",
-    "@types/json-server": "^0.14.4",
-    "@types/node": "^18.11.15",
-    "tsup": "^6.5.0",
-    "typescript": "^4.9.3",
-    "vite": "^4.0.0"
+  "private": true,
+  "workspaces": [
+    "plugin",
+    "example"
+  ],
+  "resolutions": {
+    "vite": "^8.0.12",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
   }
 }
