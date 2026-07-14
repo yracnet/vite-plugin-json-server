@@ -8,6 +8,7 @@ export default defineConfig({
     react(),
     jsonServer({
       profile: "./db1",
+      delay: 500,
     }),
   ],
 })

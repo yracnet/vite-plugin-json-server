@@ -1,12 +1,169 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" },
-    { "id": 2, "title": "json-server1", "author": "typicode1" },
-    { "id": 3, "title": "json-server2", "author": "typicode2" },
-    { "id": 4, "title": "json-server3", "author": "typicode3" },
-    { "id": 5, "title": "json-server4", "author": "typicode4" },
-    { "id": 6, "title": "json-server5", "author": "typicode5" }
+    {
+      "id": 1,
+      "title": "Getting started with vite-plugin-json-server",
+      "author": "Willyams Yujra"
+    },
+    {
+      "id": 2,
+      "title": "Mocking REST APIs during development",
+      "author": "Elizabeth Rondo"
+    },
+    {
+      "id": 3,
+      "title": "Why we moved our mock API to json-server",
+      "author": "Diego Flores"
+    },
+    {
+      "id": 4,
+      "title": "Vite plugins 101: writing your own",
+      "author": "Willyams Yujra"
+    },
+    {
+      "id": 5,
+      "title": "From Postman collections to a fake REST backend",
+      "author": "Elizabeth Rondo"
+    },
+    {
+      "id": 6,
+      "title": "Filtering and sorting with json-server query params",
+      "author": "Diego Flores"
+    },
+    {
+      "id": 7,
+      "title": "Pagination patterns for REST APIs",
+      "author": "Ana Belen Quispe"
+    },
+    {
+      "id": 8,
+      "title": "Building CRUD screens faster with reusable panels",
+      "author": "Willyams Yujra"
+    },
+    {
+      "id": 9,
+      "title": "Testing frontend code against a fake backend",
+      "author": "Ana Belen Quispe"
+    },
+    {
+      "id": 10,
+      "title": "Vite config tips for monorepos",
+      "author": "Diego Flores"
+    },
+    {
+      "id": 11,
+      "title": "Bootstrap modals for create and edit forms",
+      "author": "Elizabeth Rondo"
+    },
+    {
+      "id": 12,
+      "title": "Deploying a Vite app with a mock API for demos V2",
+      "author": "Ana Belen Quispe"
+    }
   ],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" }
+  "comments": [
+    {
+      "id": 1,
+      "body": "This saved me from spinning up a real backend just for the demo, thanks!",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "Would love to see an example with authentication middleware.",
+      "postId": 1
+    },
+    {
+      "id": 3,
+      "body": "We switched from a hand-rolled Express mock to this and cut setup time in half.",
+      "postId": 2
+    },
+    {
+      "id": 4,
+      "body": "Any plans to support GraphQL as well?",
+      "postId": 3
+    },
+    {
+      "id": 5,
+      "body": "Clear write-up, the profile watcher example was especially useful.",
+      "postId": 4
+    },
+    {
+      "id": 6,
+      "body": "The _sort and _order params worked exactly like typicode's json-server.",
+      "postId": 6
+    },
+    {
+      "id": 7,
+      "body": "Pagination with X-Total-Count made it trivial to wire up the UI.",
+      "postId": 7
+    },
+    {
+      "id": 8,
+      "body": "The CrudPanel factory pattern is a nice touch, less boilerplate per resource.",
+      "postId": 8
+    },
+    {
+      "id": 9,
+      "body": "Using this in our Cypress suite instead of mocking fetch calls directly.",
+      "postId": 9
+    },
+    {
+      "id": 10,
+      "body": "Finally a monorepo example that actually documents the workspace setup.",
+      "postId": 10
+    },
+    {
+      "id": 11,
+      "body": "The edit modal reusing the same form as create is a good simplification.",
+      "postId": 11
+    },
+    {
+      "id": 12,
+      "body": "Great for demoing the frontend to stakeholders without a real API.",
+      "postId": 12
+    }
+  ],
+  "profile": [
+    {
+      "id": 1,
+      "name": "Willyams Yujra",
+      "email": "yracnet@gmail.com",
+      "bio": "Maintainer of vite-plugin-json-server."
+    }
+  ],
+  "data": [
+    {
+      "id": 1,
+      "data": {
+        "name": "willyams",
+        "role": "admin",
+        "settings": {
+          "theme": "dark",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "data": {
+        "name": "ana",
+        "role": "editor",
+        "settings": {
+          "theme": "light",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "data": {
+        "name": "diego",
+        "role": "viewer",
+        "settings": {
+          "theme": "dark",
+          "language": "es"
+        }
+      }
+    }
+  ]
 }

@@ -1,86 +1,19 @@
 import { Plugin, ResolvedConfig } from "vite";
-import * as http from "http";
 import jsonServer, { MiddlewaresOptions } from "json-server";
 import { join } from "path";
 import fs from "fs";
-import { NextFunction, IncomingMessage } from "connect";
-//@ts-ignore
-import is from "json-server/lib/cli/utils/is.js";
+import { IncomingMessage } from "connect";
 //@ts-ignore
 import load from "json-server/lib/cli/utils/load.js";
 //@ts-ignore
 import pause from "connect-pause";
-
-type PluginOptions = {
-  source: string;
-  apiPath: string;
-  profile: string;
-  static: string;
-  // routes: string;
-  // snapshots: string;
-  // middlewares: string[];
-  unwatch: boolean;
-  readOnly: boolean;
-  bodyParser: boolean;
-  noCors: boolean;
-  noGzip: boolean;
-  delay: number;
-  id: string;
-  foreignKeySuffix: string;
-  quiet: boolean;
-};
-
-type HttpHandler = (
-  req: http.IncomingMessage,
-  res: http.ServerResponse,
-  next: NextFunction
-) => void;
-
-const assertPluginOptions = (
-  pluginOptions: Partial<PluginOptions>
-): PluginOptions => {
-  const {
-    apiPath = "/api",
-    profile = "",
-    source = "db.json",
-    static: staticDir = "public",
-    // routes = "routes.json",
-    // snapshots = "snapshots",
-    // middlewares = [],
-    unwatch = false,
-    readOnly = false,
-    bodyParser = true,
-    noCors = false,
-    noGzip = false,
-    delay = 10,
-    id = "_id",
-    foreignKeySuffix = "_id",
-    quiet = false,
-  } = pluginOptions;
-  return {
-    apiPath,
-    profile,
-    source: is.URL(source) ? source : join(profile, source),
-    static: join(profile, staticDir),
-    // routes: join(profile, staticDir),
-    // snapshots: join(profile, snapshots),
-    // middlewares: join(profile, middlewares),
-    unwatch,
-    readOnly,
-    bodyParser,
-    noCors,
-    noGzip,
-    delay,
-    id,
-    foreignKeySuffix,
-    quiet,
-  };
-};
+import { PluginOptions, PluginConfig, HttpHandler, ensureConfig } from "./model";
+import { createQueryAdapter } from "./query";
 
 export const pluginJsonServer = (
   userOptions: Partial<PluginOptions> = {}
 ): Plugin => {
-  const opts = assertPluginOptions(userOptions);
+  const opts: PluginConfig = ensureConfig(userOptions);
 
   const createServer = async (
     config: ResolvedConfig
@@ -127,6 +60,7 @@ export const pluginJsonServer = (
         logger.info("  Delay: " + opts.delay);
         app.use(pause(opts.delay));
       }
+      app.use(createQueryAdapter(opts.queryMode));
       app.use(router);
       return app;
     } catch (error) {
